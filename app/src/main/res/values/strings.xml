@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">YazakiAndroidBTService</string>
+    <string name="foreground_service_channel">Yazaki Bluetooth Service Notification</string>
+</resources>
