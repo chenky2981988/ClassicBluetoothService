@@ -4,6 +4,7 @@ import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothServerSocket;
 import android.bluetooth.BluetoothSocket;
+import android.util.Log;
 
 import com.yazaki.btservice.yazakiandroidbtservice.base.BaseListener;
 import com.yazaki.btservice.yazakiandroidbtservice.base.BluetoothListener;
@@ -136,6 +137,7 @@ public class BluetoothService {
             mAcceptThread.cancel();
             mAcceptThread = null;
         }
+        Log.d("Yazaki","Connected");
         mConnectedThread = new ConnectedThread(socket);
         mConnectedThread.start();
         mBluetoothDevice = socket.getRemoteDevice();
@@ -333,6 +335,7 @@ public class BluetoothService {
         public void run() {
             byte[] buffer = new byte[1024];
             int bytes;
+            Log.d("Yazaki","Ready to receive Data");
             while (true) {
                 try {
                     bytes = mmInStream.read(buffer);
